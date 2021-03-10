@@ -1,11 +1,11 @@
 # Site settings
-author: guofa shou
-title: 
+author: Shawn Shou
+title: ds_shou
 header-img: img/home-bg.png
 email: shantouhe@gmail.com
-copyright_name: guofa shou
+copyright_name: Shawn Shou
 description: > # this means to ignore newlines until "baseurl:"
-  
+  My journal in data science
 baseurl: "" # the subpath of your site, e.g. /blog
 twitter_username: 
 github_username:  eegshou
