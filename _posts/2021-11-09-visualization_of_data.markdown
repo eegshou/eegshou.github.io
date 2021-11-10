@@ -9,7 +9,9 @@ permalink:  visualization_of_data
 As a data scientist, it is very important to choose a proper method to viusalize the data.  The use of different visualizaiton methods have different purposes and could reveal the data in different aspects. The good visualization could make the communication with the stakeholders more effectively. Here, I introduced two commonly used visualization methods  in data science. 
 
 The first one is the Histogram, see the following histogram of the house sale price as an example:
-![](https://raw.githubusercontent.com/eegshou/dsc-phase-2-project/mvp/Figs/Price_histogram.png)
+
+![Histogram of the house price](https://raw.githubusercontent.com/eegshou/dsc-phase-2-project/mvp/Figs/Price_histogram.png)
+
 The histogram is a bar plots with each bar indicates the number of values belonging to a specific range of values. The histogram could tell us the distribution of the all values, e.g., "symmetric", "skewed left" or "right", "unimodal", "bimodal" or "multimodal". It also could tell us which value range have more data.  Based on the Histogram, we could know what's the approximate distribution of the data, e.g., normal or not, and do subsequent data processing.
 
 
