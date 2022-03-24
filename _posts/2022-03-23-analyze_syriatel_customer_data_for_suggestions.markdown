@@ -24,7 +24,7 @@ Third, I examined the features one-by-one:
 
 1) 'account_length': a normal distribution and in the unit of day 
 
-![figure of accountlenhist](https://raw.githubusercontent.com/eegshou/dsc-phase-3-project/shou/figures/accountlen_hist.png)
+![](https://raw.githubusercontent.com/eegshou/dsc-phase-3-project/shou/figures/accountlen_hist.png)
 
 2) 'area_code': the churn rates are similar across three unique area codes, therefore, this feature can be excluded from classification
 
