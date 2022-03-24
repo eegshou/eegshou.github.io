@@ -10,15 +10,17 @@ In this project, I tried to find the features that are significantly related to 
 The data is SyriaTel Customer Churn![](https://www.kaggle.com/becksddf/churn-in-telecoms-dataset) with the file name as:  bigml_59c28831336c6604c800002a.csv
 
 First, I loaded the data to checked the potential features, and found:
-1) There are 20 features and one target, i.e., churn, and no missing data from all columns
-2) A total of 3333 entries
-3) Data types of several columns need to be changed
+
+- There are 20 features and one target, i.e., churn, and no missing data from all columns
+- A total of 3333 entries
+- Data types of several columns need to be changed
 
 Second, I prepared the data:
-1) the column names: replace ' ' with ''
-2) the column 'phone number': drop it since it generally does not affect the customer churn
-3) the column 'internationalplan' and 'voicemailplan': replace 'yes' and 'no' with 1 and 0
-4) the target column 'churn': convert boolean into int, and I also found the target is imbalanced: 0-2850 entries,1-483 entries
+
+-  the column names: replace ' ' with ''
+-  the column 'phone number': drop it since it generally does not affect the customer churn
+-  the column 'internationalplan' and 'voicemailplan': replace 'yes' and 'no' with 1 and 0
+-   the target column 'churn': convert boolean into int, and I also found the target is imbalanced: 0-2850 entries,1-483 entries
 
 Third, I examined the features one-by-one:
 
