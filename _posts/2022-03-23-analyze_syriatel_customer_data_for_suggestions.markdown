@@ -5,7 +5,9 @@ date:       2022-03-23 23:18:38 -0400
 permalink:  analyze_syriatel_customer_data_for_suggestions
 ---
 
-In this project, I tried to find the features that are significantly related to the churn of customers for SyriaTel service. To this end, I have both analyzed individual features with respect of the churn and built binary classification models for prediction of customer's churn label. 
+This blog covers the steps to analyze SyriaTel customer data. In this project, I tried to find the features that are significantly related to the churn of customers for SyriaTel service. To this end, I have both analyzed individual features with respect of the churn and built binary classification models for prediction of customer's churn label. 
+
+### Data analysis
 
 The data is SyriaTel Customer Churn![](https://www.kaggle.com/becksddf/churn-in-telecoms-dataset) with the file name as:  bigml_59c28831336c6604c800002a.csv
 
@@ -33,31 +35,106 @@ Third, I examined the features one-by-one:
 3) 'state': different states have different churn rate, CA and NJ are the two highest churn rate states > 25%,
  while AK and HI are the two lowest churn rate states < 6%
 
-![figure of churnrate_states](figures/churnrate_states.png)
+![](https://raw.githubusercontent.com/eegshou/dsc-phase-3-project/shou/figures/churnrate_states.png)
 
 4) 'international_plan' and 'voice_mail_plan': the customers with international plan but without voice mail plan have higher churn rate
 
-![figure of churnrate_intervoiceplans](figures/churnrate_intervoiceplans.png)
+![](https://raw.githubusercontent.com/eegshou/dsc-phase-3-project/shou/figures/churnrate_intervoiceplans.png)
 
 5) 'number_vmail_messages': This feature seems not well sampled, since there are too many customers in the survey has 0 number of voice messages. Meanwhile, this feature also have some relationship with the churn rate
 
-![figure of churnrate_numvmailmges](figures/churnrate_numvmailmges.png)
+![](https://raw.githubusercontent.com/eegshou/dsc-phase-3-project/shou/figures/churnrate_numvmailmges.png)
 
 6) 'customer_service_calls': the customers with number of service calls as 4,5,6 have larger churn rate, while less than 4 are likely to drop
-![figure of churnrate_numvmailmges](figures/churnrate_custsercalls.png)
+![](https://raw.githubusercontent.com/eegshou/dsc-phase-3-project/shou/figures/churnrate_custsercalls.png)
 
 7) The remaining features related to calls and charges within four different categories: day, eve, night, intl, might have high correlation. I found the minutes and charge in each category has close to 1 correlation.so I will drop the columns of charge in the following classification models
 
-The first one is the histogram plot, see the following image as an example of the histogram of the house price in project 2:
-![](https://raw.githubusercontent.com/eegshou/dsc-phase-2-project/mvp/Figs/Price_histogram.png)
+### Modeling
+
+#### Prepare train and test data
+
+After examining all features, I prepare the train and test data:
+
+- The target is the churn column
+- The features are all columns after excluding   churn','area_code','total_day_charge','total_eve_charge','total_night_charge','total_intl_charge'
+- For 'state', I will do oneHotEncoder for both X_train and X_test
+- Split data into train and test part
+- Since churn== 1 is signficantly smaller than churn==0,i.e., 358 vs. 2141, I will use SMOTE oversampling
 
 
-The histogram is a bar plot with each bar indicates the number of values belonging to a specific range of values. The histogram could tell us the distribution of all values, e.g., “symmetric”, “skewed left” or “right”, “unimodal”, “bimodal” or “multimodal”. The above figure indicates the price is skewed right. It also could tell us which value range have more data. Based on the histogram plot, we could know what’s the approximate distribution of the data, e.g., normal or not, and do subsequent data processing.
+#### Build a baseline model using decision tree
 
-The second one is the boxplot, see the following image as an example of the boxplot of price for the houses with different number of bedrooms in project 2:
-![](https://raw.githubusercontent.com/eegshou/dsc-phase-2-project/mvp/Figs/boxplot_price_bedrooms.png)
+The performance of the baseline model is: 
+      - confusion matrix: 
+         [[1997  144]
+         [  78  280]]
+      - accuracy_score:  0.911
+      - f1_score:  0.716
+      - recall_score:  0.782
+      not bad
+      
+The importance of each feature is shown in the following figure: three features are the most important ones
+- customer_service_calls
+- total_day_minutes
+- international_plan
+
+![](https://raw.githubusercontent.com/eegshou/dsc-phase-3-project/shou/figures/dtbasic_feat_import.png)
+
+take a look total_day_minutes: total day minutes > 315.6, churn rate is 100%, and total day minutes < 46.5, churn rate is mostly 0
+
+![](https://raw.githubusercontent.com/eegshou/dsc-phase-3-project/shou/figures/churnrate_totaldaymin.png)
 
 
-The boxplot is still a bar plot, which is often used to visualizaiton the values belong to different groups with each group as a bar, e.g., the price values of the house with different number of bedrooms. The boxplot directly viusalize several summary statistics, i.e., the minimum, the maximum, the sample median, the first (Q1) and third quartiles (Q3), as well as the outliers. Based on the interquartile range (IQR) as Q3-Q1, the minimun and maximun are defined as Q1-1.5 * IQR and Q3 + 1.5 * IQR, respectively. And the values beyond the range from the minimun to maximun are the outliers. Again, the boxplot can tell us the distribution of data, e.g., it is a normal distribution if Q1 and Q3 are symmetric with respect to the median.
+#### Classification Model Comparisons using different classifiers
 
-Based on the characteristics of the data and the project goal, we should choose proper visualization methods for different types of data.
+- DecisonTreeClassifier
+- KNeighborsClassifier
+- RandomForestClassifier
+- AdaBoostClassifier
+- GradientBoostingClassifier
+
+the performance is shown as:
+
+![](https://raw.githubusercontent.com/eegshou/dsc-phase-3-project/shou/figures/clsmodelscmp.PNG)
+
+The GradientBoostingClassifier achieves the best results, So I will use this model in the following analysis
+
+Based on its intial parameters, I used gridsearch to find the optimal parameters, and obtained best parameters are:
+{'learning_rate': 0.1, 'loss': 'deviance', 'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 2} 
+
+
+#### Final model with GradientBoostingClassifier
+
+The performance of final model on training and test data are:
+
+Final model for train data:
+accuracy_score:  0.98
+recall_score:  0.88
+f1_score:  0.926
+
+![](https://raw.githubusercontent.com/eegshou/dsc-phase-3-project/shou/figures/clffinal_confmattrain.png)
+
+Final model for test data:
+accuracy_score:  0.944
+recall_score:  0.736
+f1_score:  0.797
+
+![](https://raw.githubusercontent.com/eegshou/dsc-phase-3-project/shou/figures/clffinal_confmattest.png)
+
+and the feature importance for the final model is
+
+![](https://raw.githubusercontent.com/eegshou/dsc-phase-3-project/shou/figures/clffinal_feat_import.png)
+
+
+### Summary
+
+From the classification models, I found that three features affected the customer churn rate most significantly:
+
+- customer_service_calls: The customers with large number of service calls as 4,5,6 seems have the larger churn rate
+- international_plan: The customers with international plan have the higher churn rate
+- total_day_minutes: The customers with the total day minutes > 315.6, churn rate is 100%, and total day minutes < 46.5, churn rate is mostly 0, therefore, the company need to deal with the customers with the total day minutes     between 46.5 to 316 mins
+
+Regarding states: AZ, AK and HI have the lowest churn rate states, therefore, need to pay more attention on the customers from these states
+
+
