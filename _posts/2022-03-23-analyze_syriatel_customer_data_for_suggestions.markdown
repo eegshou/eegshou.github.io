@@ -1,13 +1,13 @@
 ---
 layout: post
 title:      "Analyze SyriaTel Customer Data for Suggestions"
-date:       2022-03-24 03:18:37 +0000
+date:       2022-03-23 23:18:38 -0400
 permalink:  analyze_syriatel_customer_data_for_suggestions
 ---
 
 In this project, I tried to find the features that are significantly related to the churn of customers for SyriaTel service. To this end, I have both analyzed individual features with respect of the churn and built binary classification models for prediction of customer's churn label. 
 
-The data [SyriaTel Customer Churn](https://www.kaggle.com/becksddf/churn-in-telecoms-dataset) with the file bigml_59c28831336c6604c800002a.csv
+The data is SyriaTel Customer Churn![](https://www.kaggle.com/becksddf/churn-in-telecoms-dataset) with the file bigml_59c28831336c6604c800002a.csv
 
 First, I loaded the data to checked the potential features, and found:
 1) There are 20 features and one target, i.e., churn, and no missing data from all columns
