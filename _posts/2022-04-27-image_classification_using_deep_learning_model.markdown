@@ -18,7 +18,7 @@ Well, I am not a radiologist, it is really hard for me to judge whether the xray
 
 The dataset I downloaded from kraggle has already been splitted into three folders, i.e., train, validation, and test. At first, I found there are only 8 images in the validation folder for both normal and pneumonia. Therefore, I moved 150 images from training folder to validation folder. And finally, the number of images in each folder is shown below:
 
-![](https://raw.githubusercontent.com/eegshou/dsc_proj4/main/figures/xchestimage.png)
+![](https://raw.githubusercontent.com/eegshou/dsc_proj4/main/figures/numimagesfinal.png)
 
 
 
