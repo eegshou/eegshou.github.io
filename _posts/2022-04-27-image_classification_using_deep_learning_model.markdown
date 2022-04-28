@@ -11,3 +11,5 @@ My major in university is Biomedical Engineering, in which medical image process
 In this project, I tried to do image classification of chest xray images to see whether it is belonging to a healthy person or a patient with pneumonia, with the images download from kraggle:  ![](https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia)
 
 
+
+
