@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "Image Classification using deep learning model"
-date:       2022-04-28 03:40:30 +0000
+date:       2022-04-27 23:40:30 -0400
 permalink:  image_classification_using_deep_learning_model
 ---
 
