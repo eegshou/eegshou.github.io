@@ -14,6 +14,12 @@ In this project, I tried to do image classification of chest xray images to see 
 The images I am going to deal with in this project are shown like these:
 ![]https://raw.githubusercontent.com/eegshou/dsc_proj4/main/figures/xchestimage.png
 
+Well, I am not a radiologist, it is really hard for me to judge whether the xray image shows Pneumonia or not. Fortunately, we have machine learning, specifically, we have supervised machine learning to let the computer judge whether it is pneumonia or normal after learning from tens and thousands images.
+
+The dataset I downloaded from kraggle has already been splitted into three folders, i.e., train, validation, and test. At first, I found there are only 8 images in the validation folder for both normal and pneumonia. Therefore, I moved 150 images from training folder to validation folder. And finally, the number of images in each folder is shown below:
+
+![]https://raw.githubusercontent.com/eegshou/dsc_proj4/main/figures/xchestimage.png
+
 
 
 
