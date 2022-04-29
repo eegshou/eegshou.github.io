@@ -32,7 +32,6 @@ Then I used training and validation dataset for comparing eight different types 
 - the model_cnnvgg0 with a new data augmentation (model_cnnvgg1da2)
 
 And the final results for these different models on the test data are shown below:
-
 ![](https://raw.githubusercontent.com/eegshou/dsc_proj4/main/figures/modelcomp_testlossacc.png)
 
 It seems that the cnnvgg models are slight better, while they are generally similar except the baseline dense model
@@ -43,8 +42,7 @@ Finally, I chose the model_cnnvgg1 as the model to generate the final results:
 - Recall: 97.94%
 - F1-score: 92.83
 
-![](https://raw.githubusercontent.com/eegshou/dsc_proj4/main/figures/FinalModel_conf.png)
-
+         ![](https://raw.githubusercontent.com/eegshou/dsc_proj4/main/figures/FinalModel_conf.png)
 
 ### Summary
 
