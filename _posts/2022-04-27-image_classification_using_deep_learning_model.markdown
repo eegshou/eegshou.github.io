@@ -10,7 +10,6 @@ My major in university is Biomedical Engineering, in which medical image process
 
 In this project, I tried to do image classification of chest xray images to see whether it is belonging to a healthy person or a patient with pneumonia, with the images download from kraggle:  ![](https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia)
 
-
 The images I am going to deal with in this project are shown like these:
 ![](https://raw.githubusercontent.com/eegshou/dsc_proj4/main/figures/xchestimage.png)
 
@@ -18,7 +17,6 @@ Well, I am not a radiologist, it is really hard for me to judge whether the xray
 
 The dataset I downloaded from kraggle has already been splitted into three folders, i.e., train, validation, and test. At first, I found there are only 8 images in the validation folder for both normal and pneumonia. Therefore, I moved 150 images from training folder to validation folder. And finally, the number of images in each folder is shown below:
 ![](https://raw.githubusercontent.com/eegshou/dsc_proj4/main/figures/numimagesfinal.png)
-
 
 Then I used training and validation dataset for comparing eight different types of models:
 - a baseline dense model (termed as model_dense)
@@ -41,8 +39,7 @@ Finally, I chose the model_cnnvgg1 as the model to generate the final results:
 - Precision: 88.22%
 - Recall: 97.94%
 - F1-score: 92.83
-
-         ![](https://raw.githubusercontent.com/eegshou/dsc_proj4/main/figures/FinalModel_conf.png)
+ ![](https://raw.githubusercontent.com/eegshou/dsc_proj4/main/figures/FinalModel_conf.png)
 
 ### Summary
 
