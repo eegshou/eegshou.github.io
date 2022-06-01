@@ -8,8 +8,7 @@ permalink:  project_5_a_recommendation_system_for_netflix_shows
 
 Finally, I reached the final project for this self-paced data scientist program. As a final capstone project, I chose to develop a recommendation system on Netflix shows, which I have not conducted before.
 
-In this project, I downloaded Netflix Moives and TV Shows dataset from: 
-  ![](https://www.kaggle.com/datasets/shivamb/netflix-shows)
+In this project, I downloaded Netflix Moives and TV Shows dataset from: (https://www.kaggle.com/datasets/shivamb/netflix-shows)
 and developed a recommendation system with following two steps:
 
 - Comprehensive EDA was performed on different features of the data
