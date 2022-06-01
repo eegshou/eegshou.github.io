@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "Project 5: a recommendation system for Netflix shows"
-date:       2022-06-01 03:02:51 +0000
+date:       2022-05-31 23:02:51 -0400
 permalink:  project_5_a_recommendation_system_for_netflix_shows
 ---
 
@@ -34,39 +34,39 @@ In this project, I downloaded Netflix Moives and TV Shows dataset from: ![](http
 
 ##### The directors who have the top 10 titles in the database:
 
-![figure of top10directorsunpacked](https://raw.githubusercontent.com/eegshou/proj5/main/figures/top10directorunpacked.png)
+![](https://raw.githubusercontent.com/eegshou/proj5/main/figures/top10directorunpacked.png)
 
 ##### The casts who have the top 10 titles:
 
-![figure of top10cast](figures/top10castunpacked.png)
+![figure of top10cast](https://raw.githubusercontent.com/eegshou/proj5/main/figures/top10castunpacked.png)
 
 ##### The countries who have the top 10 titles:
 
-![figure of top10countries](figures/top10countryunpacked.png)
+![figure of top10countries](https://raw.githubusercontent.com/eegshou/proj5/main/figures/top10countryunpacked.png)
 
 USA,India,and UK have the top 3 number of movies/TV show
 
 ##### Precentages of movies/tv shows with respect to adding years and release years
 
-![figure of noc20152021](figures/numofcounts2015_2021.png)
+![figure of noc20152021](https://raw.githubusercontent.com/eegshou/proj5/main/figures/numofcounts2015_2021.png)
 
 In general, there are more movies than TV shows in each year
 
 ##### The rating
 
-![figure of rating](figures/ratingcount.png)
+![figure of rating](https://raw.githubusercontent.com/eegshou/proj5/main/figures/ratingcount.png)
 
 TV-MA, TV-14, TV-PG are the three ratings with top three counts
 
 ##### The list_in
 
-![figure of list_in](figures/top10listed_inunpackedTVShow.png)
+![figure of list_in](https://raw.githubusercontent.com/eegshou/proj5/main/figures/top10listed_inunpackedTVShow.png)
 
 International,commedy,drama are the top three
 
 ##### The description
 
-![figure of description](figures/descriptionwordcloud.png)
+![figure of description](https://raw.githubusercontent.com/eegshou/proj5/main/figures/descriptionwordcloud.png)
 
 
 #### Recommendation
@@ -81,17 +81,17 @@ I tried six combinations of features based on 'director','cast','rating','listed
 
 and found they are generally similar, see an example:
 
-![figure of difcombfeatures](figures/top10recomdtitles_toohottohandlebrazil_df.png)
+![figure of difcombfeatures](https://raw.githubusercontent.com/eegshou/proj5/main/figures/top10recomdtitles_toohottohandlebrazil_df.png)
 
 So I just used comb_feataures5, and two examples of TV show and Movie are shown below:
 
 TV show:'love on the spectrum'
 
-![figure of top10TVshow](figures/top10recomdtitles_loveonthespectrum.png)
+![figure of top10TVshow](https://raw.githubusercontent.com/eegshou/proj5/main/figures/top10recomdtitles_loveonthespectrum.png)
 
 Movie: jeans
 
-![figure of top10TVshow](figures/top10recomdtitles_jeans.png)
+![figure of top10TVshow](https://raw.githubusercontent.com/eegshou/proj5/main/figures/top10recomdtitles_jeans.png)
 
 ### Conclusion
 - After a comprehensive EDA of netflix movie and TV shows, a content-based recommendation system was successfully built
